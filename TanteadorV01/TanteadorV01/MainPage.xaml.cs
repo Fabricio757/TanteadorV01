@@ -19,10 +19,26 @@ namespace TanteadorV01
 
         private async void CameraButton_Clicked(object sender, EventArgs e)
         {
-            var photo = await Plugin.Media.CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions() { });
+            await CrossMedia.Current.Initialize();
 
-            if (photo != null)
-                PhotoImage.Source = ImageSource.FromStream(() => { return photo.GetStream(); });
+            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+            {
+                await DisplayAlert("No Camera", "No camera avaialble.", "OK");
+                return;
+            }
+
+            try
+            {
+                var photo = await Plugin.Media.CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions() { });
+
+                if (photo != null)
+                    PhotoImage.Source = ImageSource.FromStream(() => { return photo.GetStream(); });
+            }
+            catch(Exception ex)
+            {
+                await this.DisplayAlert("Error", ex.Message, "Cancel");
+            }
+
         }
     }
 }
