@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TanteadorV01"
+             x:Class="TanteadorV01.MainPage">
+
+
+        <Grid x:Name="Principal" BackgroundColor="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.35*" />
+                <ColumnDefinition Width="0.40*" />
+                <ColumnDefinition Width="0.35*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="Columna1" Grid.Column="0" BackgroundColor="Black">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.55*" />
+                    <RowDefinition Height="0.30*" />
+                    <RowDefinition Height="0.15*" />
+                </Grid.RowDefinitions>
+                <Image x:Name="PhotoImage" Grid.Row="0"  BackgroundColor="Cyan"/>
+            <Button x:Name="CameraButton" Grid.Row="2" BackgroundColor="Cyan" Text="Saque" TextColor="BurlyWood"></Button>
+            </Grid>
+            <Grid x:Name="Columna2" Grid.Column="1" BackgroundColor="Red">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.35*" />
+                    <RowDefinition Height="0.55*" />
+                </Grid.RowDefinitions>
+                <Label BackgroundColor="Chartreuse" Grid.Row="0"></Label>
+            </Grid>
+            <Grid x:Name="Columna3" Grid.Column="2" BackgroundColor="Blue">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.55*" />
+                    <RowDefinition Height="0.30*" />
+                    <RowDefinition Height="0.15*" />
+                </Grid.RowDefinitions>
+            </Grid>
+
+        </Grid>
+
+</ContentPage>
